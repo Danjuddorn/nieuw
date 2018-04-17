@@ -18,7 +18,7 @@
             margin-top: 50px !important;
             padding: 20px 20px 20px;
             width: 260px;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0);
             border-radius: 3px;
             -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
             box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -44,7 +44,7 @@
                 color: rgba(0, 0, 0, 0.08);
                 text-align: center;
                 text-shadow: 0 1px white;
-                background: #6b5737;
+                background: #9d1212;
                 border-bottom: 1px solid #cfcfcf;
                 border-radius: 3px 3px 0 0;
                 background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
@@ -112,15 +112,15 @@
         <p>
             @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "", @placeholder = "Email" } })
             <br />
-            @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-color" })
         </p>
         <p>
             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @type = "password", @placeholder = "Password" } })
             <br />
-            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-color" })
         </p>
-        <p class="submit"><input type="submit" value="Login" class="btn btn-info"></p>
-         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <p class="submit"><input type="submit" value="Login" class="btn btn-primary"></p>
+         @Html.ValidationSummary(true, "", new { @class = "text-color" })
     </div>
 }
 
