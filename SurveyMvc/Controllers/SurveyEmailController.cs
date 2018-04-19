@@ -35,9 +35,9 @@ namespace SurveyMvc.Controllers
         public ActionResult SendEmail(EmailTemplate EmailTemplateObj)
         {
             // Gmail Address from where you send the mail
-            var fromAddress = "k.vinod@mirnah.com";
+            var fromAddress = "hoi@maarten";
             //Password of your gmail address
-            const string fromPassword = "supernice@28";
+            const string fromPassword = "hoi";
 
             SurveyContext SurveyContextObj = new SurveyContext();
 
@@ -66,12 +66,12 @@ namespace SurveyMvc.Controllers
 
                     mm.IsBodyHtml = false;
                     SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "mymail2.myregisteredsite.com";
+                    smtp.Host = "smtphost";
                     smtp.EnableSsl = false;
                     NetworkCredential NetworkCred = new NetworkCredential(fromAddress, fromPassword);
                     smtp.UseDefaultCredentials = true;
                     smtp.Credentials = NetworkCred;
-                    smtp.Port = 587;
+                    smtp.Port = 0;
                     smtp.Send(mm);
                 }
 
