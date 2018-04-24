@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using SurveyMvc.Models.Result;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,6 +20,21 @@ namespace SurveyMvc.Controllers
             ViewBag.SurveyBag = new SelectList(SurveyContextObj.DbSurveyMaster, "SurveyId", "SurveyCaption");
 
             return View();
+        }
+        public void ExportToCSV()
+        {
+            StringWriter sw = new StringWriter();
+
+            sw.WriteLine("\"QuestionId\"");
+            Response.ClearContent();
+            Response.AddHeader("content-disposition","attachment;filename=ExportedClientslist.csv");
+            Response.ContentType = "text/csv";
+
+            var clients = ResultClass.
+        }
+        public void ExportToExcel()
+        {
+
         }
 
         // GET: ActivityList

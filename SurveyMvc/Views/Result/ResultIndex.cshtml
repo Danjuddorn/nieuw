@@ -24,7 +24,7 @@
     <div class="col-md-8 col-sm-12 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading" style="height: 50px;padding:10px">
-                <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Survey Charts</h4>
+                <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Enquête Charts</h4>
             </div>
 
             <div class="panel-body">
@@ -39,13 +39,22 @@
                         <div class="panel-body">
                             <div class="form-group row">
 
-                                @Html.Label("DateStart", htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.Label("Startdatum", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-2">
-                                    @Html.Editor("DateStart", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateStart", @readonly = "readonly", } })
+                                    @Html.Editor("startdatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateStart", @readonly = "readonly", } })
                                 </div>
-                                @Html.Label("DateEnd", htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.Label("einddatum", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-2">
-                                    @Html.Editor("DateEnd", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateEnd", @readonly = "readonly" } })
+                                    @Html.Editor("einddatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateEnd", @readonly = "readonly" } })
+                                </div>
+                                @Html.Label("Export als .Csv", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-2">
+                                    <button class="btn btn-default" formaction="">
+                                        
+                                       
+                                        CSV
+
+                                    </button>
                                 </div>
 
                             </div>

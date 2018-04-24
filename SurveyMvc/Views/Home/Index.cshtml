@@ -14,7 +14,7 @@
         <div class="col-md-10 col-sm-12 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Active Survey Status
+                    Beschikbare enquêtes
                 </div>
                 <div class="panel-body">
                     <div class="container" id="graphPanel">
@@ -66,7 +66,7 @@
                     var Maindiv = $('<div class="ChartRow"></div>');
 
                     var CaptionP = $('<p></p>');
-                    CaptionP.append(item.SurveyCaption + ' ' + item.countFinished + '/' + (item.countFinished + item.countRemains) + ' Done');
+                    CaptionP.append(item.SurveyCaption + ' ' + item.countFinished + '/' + (item.countFinished + item.countRemains) + ' Klaar');
 
                     var iPer = parseInt((item.countFinished / (item.countFinished + item.countRemains)) * 100);
 
