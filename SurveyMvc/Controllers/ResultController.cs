@@ -30,7 +30,7 @@ namespace SurveyMvc.Controllers
             Response.AddHeader("content-disposition","attachment;filename=ExportedClientslist.csv");
             Response.ContentType = "text/csv";
 
-            var clients = ResultClass.
+            
         }
         public void ExportToExcel()
         {
