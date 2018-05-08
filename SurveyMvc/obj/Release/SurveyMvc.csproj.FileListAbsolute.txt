@@ -90,3 +90,5 @@ C:\Users\maart\source\repos\surveymvc\SurveyMvc\obj\Release\SurveyMvc.csproj.Cor
 C:\Users\maart\source\repos\surveymvc\SurveyMvc\obj\Release\SurveyMvc.csproj.CopyComplete
 C:\Users\maart\source\repos\surveymvc\SurveyMvc\obj\Release\SurveyMvc.dll
 C:\Users\maart\source\repos\surveymvc\SurveyMvc\obj\Release\SurveyMvc.pdb
+C:\Users\maart\source\repos\surveymvc\SurveyMvc\bin\EPPlus.dll
+C:\Users\maart\source\repos\surveymvc\SurveyMvc\bin\EPPlus.xml
