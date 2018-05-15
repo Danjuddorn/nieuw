@@ -121,3 +121,4 @@ C:\Users\dstut\Source\Repos\nieuw\SurveyMvc\bin\System.Web.WebPages.Deployment.x
 C:\Users\dstut\Source\Repos\nieuw\SurveyMvc\bin\System.Web.WebPages.Razor.xml
 C:\Users\dstut\Source\Repos\nieuw\SurveyMvc\bin\Antlr3.Runtime.pdb
 C:\Users\dstut\Source\Repos\nieuw\SurveyMvc\bin\Newtonsoft.Json.xml
+C:\Users\dstut\Source\Repos\nieuw\SurveyMvc\obj\Release\SurveyMvc.csproj.CopyComplete
