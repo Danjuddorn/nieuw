@@ -1,8 +1,10 @@
 ﻿using MtsSurvey.Models;
 using Newtonsoft.Json;
+using OfficeOpenXml;
 using SurveyMvc.Models.Result;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,13 +14,39 @@ namespace SurveyMvc.Controllers
      [Authorize(Roles = "Admin")]
     public class ResultController : Controller
     {
+       
         // GET: Result
         public ActionResult ResultIndex()
         {
             SurveyContext SurveyContextObj = new SurveyContext();
             ViewBag.SurveyBag = new SelectList(SurveyContextObj.DbSurveyMaster, "SurveyId", "SurveyCaption");
-
+            
+  
             return View();
+        }
+       
+        public void ExportToCSV()
+        {
+            StringWriter sw = new StringWriter();
+
+            sw.WriteLine("\"QuestionId\"");
+            Response.ClearContent();
+            Response.AddHeader("content-disposition","attachment;filename=ExportedClientslist.csv");
+            Response.ContentType = "text/csv";
+
+            var clients = ResultSQ.GenerateDummyClientList();
+
+            foreach (var Client in clients)
+            {
+                sw.WriteLine(string.Format("\"{0}\"",
+                    Client.QuestionId));
+            }
+            Response.Write(sw.ToString());
+            Response.End();
+        }
+        public void ExportToExcel()
+        {
+
         }
 
         // GET: ActivityList

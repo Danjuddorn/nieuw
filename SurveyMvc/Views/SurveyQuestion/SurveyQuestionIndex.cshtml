@@ -11,7 +11,7 @@
         <a href="/Home/Index">Home</a>
         <i class="icon-angle-right"></i>
     </li>
-    <li><a href="#">Survey Questions</a></li>
+    <li><a href="#">Enquête Vragen</a></li>
 </ul>
 
 <br />
@@ -20,14 +20,14 @@
     <div class="col-md-8 col-sm-12 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading" style="height: 50px;padding:10px">
-                <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Survey Questions</h4>
+                <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Enquête Vragen</h4>
 
                 <div class="btn-group pull-right">
                     <a href="#" class="btn btn-default  btn-sm" data-toggle="modal" data-target="#myModal">
-                        <span class="glyphicon glyphicon-plus-sign">Add</span>
+                        <span class="glyphicon glyphicon-plus-sign">Toevoegen</span>
                     </a>
                     <a href="#" class="btn btn-default  btn-sm" data-toggle="modal" data-target="#myDelModal">
-                        <span class="glyphicon  glyphicon-pencil">Edit</span>
+                        <span class="glyphicon  glyphicon-pencil">Wijzigen</span>
                     </a>
                 </div>
 
@@ -43,13 +43,13 @@
                                 @Html.DropDownList("SurveyMasterBag", null, htmlAttributes: new { @class = "form-control", @id = "SurveyMasterBagId" })
                             </caption>
                             <tr class="success">
-                                <th><a id="lnkSequance" href="#">SL No</a></th>
+                                <th><a id="lnkSequance" href="#">Number</a></th>
                                 <th style="display:none;">SurveyId</th>
-                                <th><a id="lnkQuestionId" href="#">QuestionId</a></th>
-                                <th><a id="lnkType" href="#">Survey Type</a></th>
-                                <th>Question</th>
-                                <th style="display:none;">PossibleAnswersID</th>
-                                <th>Possible Answers</th>
+                                <th><a id="lnkQuestionId" href="#">Vraagid</a></th>
+                                <th><a id="lnkType" href="#">Soort enquête</a></th>
+                                <th>Vraag</th>
+                                <th style="display:none;">Mogelijke antwoorden</th>
+                                <th>Mogelijke antwoorden</th>
                             </tr>
                         </table>
                     </div>

@@ -22,7 +22,7 @@ namespace SurveyMvc.Controllers
             ViewBag.SurveyBag = new SelectList(SurveyContextObj.DbSurveyMaster, "SurveyId", "SurveyCaption");
             ViewBag.CompanyBag = new SelectList(SurveyContextObj.DbCompany, "CompanyId", "CompanyName");
 
-            EmailTemplateObj.EmailMsg = "We request you to take part in the Customer Satisfaction Survey. As we are constantly attempting to improve in every area, your inputs would be of great value to us.";
+            EmailTemplateObj.EmailMsg = "Zou u deze enquete voor ons willen invullen, hierdoor kunnen wij onze dienstverlening verbeteren.";
             return View(EmailTemplateObj);
         }
 
@@ -35,9 +35,10 @@ namespace SurveyMvc.Controllers
         public ActionResult SendEmail(EmailTemplate EmailTemplateObj)
         {
             // Gmail Address from where you send the mail
-            var fromAddress = "k.vinod@mirnah.com";
+            var fromAddress = "survey@dminterface.nl";
+            var userName = "apikey";
             //Password of your gmail address
-            const string fromPassword = "supernice@28";
+            const string fromPassword = "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";
 
             SurveyContext SurveyContextObj = new SurveyContext();
 
@@ -53,22 +54,23 @@ namespace SurveyMvc.Controllers
                         new System.Web.Routing.RouteValueDictionary(new { SurveyGuid = SurveyCustomerMapObj.SurveyGuid }),
                         "http", Request.Url.Host);
 
-                    mm.Subject = "Mirnah Customer Survey";
-                    string body = "Dear " + CustomerMasterObj.CustomerName + ", \n";
+                    mm.Subject = "DM Interface ";
+                    string body = "Beste " + CustomerMasterObj.CustomerName + ", \n";
 
                     body += EmailTemplateObj.EmailMsg;
                     body += "\n";
                     body += Userurl;
                     body += "\n";
-                    body += " Thanks & Regards, \n Mirnah Technology systems \n";
-                   
+                    body += " Bedankt voor uw medewerking. \n";
+                    body += " Met vriendelijke groet, \n DM Interface \n";
+
                     mm.Body = body;
 
                     mm.IsBodyHtml = false;
                     SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "mymail2.myregisteredsite.com";
-                    smtp.EnableSsl = false;
-                    NetworkCredential NetworkCred = new NetworkCredential(fromAddress, fromPassword);
+                    smtp.Host = "smtp.sendgrid.net";
+                    smtp.EnableSsl = true;
+                    NetworkCredential NetworkCred = new NetworkCredential(userName, fromPassword);
                     smtp.UseDefaultCredentials = true;
                     smtp.Credentials = NetworkCred;
                     smtp.Port = 587;
