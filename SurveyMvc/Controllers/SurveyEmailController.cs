@@ -38,7 +38,7 @@ namespace SurveyMvc.Controllers
             var fromAddress = "survey@dminterface.nl";
             var userName = "apikey";
             //Password of your gmail address
-            const string fromPassword = "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";
+            const string fromPassword = "wachtwoord geheim";
 
             SurveyContext SurveyContextObj = new SurveyContext();
 
