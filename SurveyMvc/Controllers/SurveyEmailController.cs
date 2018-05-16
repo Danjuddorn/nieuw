@@ -12,6 +12,7 @@ namespace SurveyMvc.Controllers
     [Authorize(Roles = "Admin")]
     public class SurveyEmailController : Controller
     {
+        // GET: SurveyEmail
         public ActionResult SurveyEmailIndex()
         {
             EmailTemplate EmailTemplateObj = new EmailTemplate();
@@ -26,18 +27,18 @@ namespace SurveyMvc.Controllers
         }
 
         /// <summary>
-        ///  SendEmail naar customers
+        ///  SendEmail to customers
         /// </summary>
         /// <param name="EmailTemplateObj"></param>
         /// <returns></returns>
         [HttpPost]
         public ActionResult SendEmail(EmailTemplate EmailTemplateObj)
         {
-            // email adres afzender
+            // Gmail Address from where you send the mail
             var fromAddress = "survey@dminterface.nl";
             var userName = "apikey";
-            // wachtwoord voor email
-            const string fromPassword = "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";
+            //Password of your gmail address
+            const string fromPassword = "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";
 
             SurveyContext SurveyContextObj = new SurveyContext();
 
@@ -55,14 +56,17 @@ namespace SurveyMvc.Controllers
 
                     mm.Subject = "DM Interface ";
                     string body = "Beste " + CustomerMasterObj.CustomerName + ", \n";
+                    body += "\n";
 
                     body += EmailTemplateObj.EmailMsg;
                     body += "\n";
                     body += Userurl;
                     body += "\n";
-                    body += " Bedankt voor uw medewerking. \n";
-                    body += " Met vriendelijke groet, \n DM Interface \n";
-
+                    body += "Bij voorbaat dank. \n";
+                    body += "\n";
+                    body += " Met vriendelijke groet, \n";
+                    body += "\n";
+                    body += "DM Interface \n";
                     mm.Body = body;
 
                     mm.IsBodyHtml = false;
@@ -82,7 +86,7 @@ namespace SurveyMvc.Controllers
         }
 
         /// <summary>
-        /// Get geselecteerde Survey Details
+        /// Get selected Survey Details
         /// </summary>
         /// <param name="SurveyId"></param>
         /// <returns></returns>

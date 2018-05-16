@@ -27,7 +27,7 @@
                         @Html.HiddenFor(m => m.SurveyID)
                         for (int i = 0; i < Model.NavQuestions.Count; i++)
                         {
-                            <div class="panel panel-success">
+                            <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     @Html.HiddenFor(m => m.NavQuestions[i].ID)
                                     @Html.Label((i + 1).ToString())
@@ -57,7 +57,7 @@
                             </div>
                         }
                         <br />
-                        <input type="submit" value="Finish" class="btn btn-success" />
+                        <input type="submit" value="Finish" class="btn btn-primary" />
 
                     }
                 </div>
