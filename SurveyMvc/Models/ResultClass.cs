@@ -25,6 +25,15 @@ namespace SurveyMvc.Models.Result
         public List<NoteClass> SurveyNote { get; set; }
 
         public ChartClass ChartData { get; set; }
+
+        public static List<ResultSQ> GenerateDummyClientList()
+        {
+            List<ResultSQ> clients = new List<ResultSQ>
+            {
+                new ResultSQ{QuestionId = 8}
+            };
+            return clients;
+        }
     }
 
     public class NoteClass
