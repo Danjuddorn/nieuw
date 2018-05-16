@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -66,7 +66,7 @@
                     <li id="navAdminUser"><a href="/AdminUser/AdminUserIndex">Gebruikers login</a></li>
                     <li id="navResult"><a href="/Result/ResultIndex">Resultaten</a></li>
                 </ul>
-                <li class="dropdown">
+                <ul class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>@User.Identity.Name <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Profiel</a></li>
@@ -74,7 +74,7 @@
                         <li class="divider"></li>
                         <li><a href=@Url.Action("logout", "AdminLogin" )>Log uit</a></li>
                     </ul>
-                </li>
+                </ul>
             </div>
         </div>
     </div>

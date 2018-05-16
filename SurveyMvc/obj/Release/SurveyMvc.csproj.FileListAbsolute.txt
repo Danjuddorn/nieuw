@@ -124,3 +124,7 @@ C:\Users\dstut\Source\Repos\nieuw\SurveyMvc\bin\Newtonsoft.Json.xml
 C:\Users\dstut\Source\Repos\nieuw\SurveyMvc\obj\Release\SurveyMvc.csproj.CopyComplete
 C:\Users\dstut\Source\Repos\nieuw\SurveyMvc\bin\EPPlus.dll
 C:\Users\dstut\Source\Repos\nieuw\SurveyMvc\bin\EPPlus.xml
+C:\Users\maart\source\repos\surveymvc\SurveyMvc\bin\CsvHelper.dll
+C:\Users\maart\source\repos\surveymvc\SurveyMvc\bin\EPPlus.dll
+C:\Users\maart\source\repos\surveymvc\SurveyMvc\bin\CsvHelper.xml
+C:\Users\maart\source\repos\surveymvc\SurveyMvc\bin\EPPlus.xml
