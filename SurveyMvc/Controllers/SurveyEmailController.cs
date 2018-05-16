@@ -56,14 +56,17 @@ namespace SurveyMvc.Controllers
 
                     mm.Subject = "DM Interface ";
                     string body = "Beste " + CustomerMasterObj.CustomerName + ", \n";
+                    body += "\n";
 
                     body += EmailTemplateObj.EmailMsg;
                     body += "\n";
                     body += Userurl;
                     body += "\n";
-                    body += " Bedankt voor uw medewerking. \n";
-                    body += " Met vriendelijke groet, \n DM Interface \n";
-
+                    body += "Bij voorbaat dank. \n";
+                    body += "\n";
+                    body += " Met vriendelijke groet, \n";
+                    body += "\n";
+                    body += "DM Interface \n";
                     mm.Body = body;
 
                     mm.IsBodyHtml = false;
