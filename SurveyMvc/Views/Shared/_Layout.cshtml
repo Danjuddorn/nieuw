@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,7 +17,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,15 +26,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-<<<<<<< HEAD
-                @*Html.ActionLink("DM Happyface", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-                <a href='@Url.Action("Index", "Home")'>
-                    <img src="~/Content/images/logo2.png" />
-                </a>
-                
-=======
                 @Html.ActionLink("DM Happyface", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
->>>>>>> 4a0e0fe... test
             </div>
         </div>
     </div>
@@ -65,17 +57,17 @@
                     <li id="navSurveyEmail"><a href="/SurveyEmail/SurveyEmailIndex">Emails</a></li>
                     <li id="navAdminUser"><a href="/AdminUser/AdminUserIndex">Gebruikers login</a></li>
                     <li id="navResult"><a href="/Result/ResultIndex">Resultaten</a></li>
+                    <li class="dropdown">
+                        <a href="/SurveyMaster/SurveyMasterIndex" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>@User.Identity.Name <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Profiel</a></li>
+                            <li><a href="#">Instellingen</a></li>
+                            <li class="divider"></li>
+                            <li><a href=@Url.Action("logout", "AdminLogin" )>Log uit</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                <ul class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>@User.Identity.Name <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Profiel</a></li>
-                        <li><a href="#">Instellingen</a></li>
-                        <li class="divider"></li>
-                        <li><a href=@Url.Action("logout", "AdminLogin" )>Log uit</a></li>
-                    </ul>
-                </ul>
-            </div>
+               </div>
         </div>
     </div>
     <div id="content" class="container">
