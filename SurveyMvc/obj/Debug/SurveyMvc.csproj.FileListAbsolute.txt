@@ -59,3 +59,7 @@ C:/Users/Administrator/documents/visual studio 2013/Projects/SurveyMvc/SurveyMvc
 /Users/Manish/Projects/DMHappyFace/Danjuddorn/nieuw/SurveyMvc/obj/Debug/SurveyMvc.csproj.CoreCompileInputs.cache
 /Users/Manish/Projects/DMHappyFace/Danjuddorn/nieuw/SurveyMvc/obj/Debug/SurveyMvc.dll
 /Users/Manish/Projects/DMHappyFace/Danjuddorn/nieuw/SurveyMvc/obj/Debug/SurveyMvc.pdb
+/Users/Manish/Projects/DMHappyFace/Danjuddorn/nieuw/SurveyMvc/bin/CsvHelper.dll
+/Users/Manish/Projects/DMHappyFace/Danjuddorn/nieuw/SurveyMvc/bin/EPPlus.dll
+/Users/Manish/Projects/DMHappyFace/Danjuddorn/nieuw/SurveyMvc/bin/CsvHelper.xml
+/Users/Manish/Projects/DMHappyFace/Danjuddorn/nieuw/SurveyMvc/bin/EPPlus.xml
