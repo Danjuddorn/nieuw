@@ -60,11 +60,11 @@
 </div>
 
 
-<!-- Modal Add Customer -->
+
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
-        <!-- Modal content-->
+
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -121,11 +121,11 @@
 </div>
 
 
-<!-- Modal Edit/Delete Survey Answer -->
+
 <div id="myDelModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
-        <!-- Modal content-->
+
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -308,7 +308,7 @@
                         $(function () {
                             $('#myModal').modal('toggle');
                         });
-                        //$('#CompanyName').val("");
+
                         tableData = tableData.concat(result);
                         PopulateTable(tableData, pNumKeep);
                     }
@@ -317,7 +317,7 @@
             return false;
         });
 
-        //edit delete js
+
         function validator() {
             return $('#frmEdtID').valid();
 
@@ -375,7 +375,6 @@
                         $('#Caption1').val("");
                         $('.AnsRow').remove();
 
-                        // Show pager row if there is more than one page
                         var pages = Math.floor(tableData.length / 10);
                         if (pages < tableData.length / 10) {
                             pages += 1;
@@ -394,34 +393,32 @@
             };
             return false;
         });
-        // Global variable for table data
+
         var tableData = null;
         var pNumKeep = 1;
 
         $(document).ready(function () {
 
-            $(".nav li").removeClass("active");//this will remove the active class from
-            //previously active menu item
+            $(".nav li").removeClass("active");
             $('#navPossibleOption').addClass('active');
 
-            //console.log("window ready");
-            // Populate categories when the page is loaded.
+
             $.getJSON('/PossibleOption/GetAllSurveyAnswer', function (data) {
-                // Populate table from Json data returned from server.
+
                 PopulateTable(data, 1);
                 pNumKeep = 1;
                 tableData = data.slice(0);
 
             }).fail(function (jqXHR, textStatus, errorThrown) {
-                // Ajax fail callback function.
+
                 alert('Error getting SurveyAnswer!');
             });
 
-            // Link ActivityId ID click event handler
+
             $('#lnkAnswerID').click(function (e) {
                 e.preventDefault();
                 if (tableData != null) {
-                    // Sort data
+
                     tableData.sort(function (a, b) {
                         return a.AnswerID <= b.AnswerID ? -1 : 1;
                     });
@@ -429,11 +426,11 @@
                 }
             });
 
-            // Link date Name click event handler
+
             $('#lnkAnswerName').click(function (e) {
                 e.preventDefault();
                 if (tableData != null) {
-                    // Sort data
+
                     tableData.sort(function (a, b) {
                         return a.Caption <= b.Caption ? -1 : 1;
                     });
@@ -449,13 +446,13 @@
             $("#myEdtBtn").click(function () {
 
                 $.getJSON('/PossibleOption/GetSelectedSurveyAnswer', { AnswerID: $('#AnswerID').val() }, function (data) {
-                    // Populate table from Json data returned from server.
+
 
                     PopulateEditForm(data);
                     $("#myDelModal").modal();
 
                 }).fail(function (jqXHR, textStatus, errorThrown) {
-                    // Ajax fail callback function.
+
                     alert('Error getting SurveyAnswer!');
                 });
             });
@@ -480,10 +477,7 @@
             });
         }
 
-        // Populate table with pager.
-        // Parameters
-        // arrData - table data
-        // pageNum - table page number
+
         function PopulateTable(arrData, pageNum) {
             var rowsPerPage = 10;
             var pages;
@@ -495,7 +489,7 @@
 
             $('#tblAnswer tr:gt(0)').remove();
             if (arrData != null) {
-                // Populate table with data in the current page.
+
                 startIndex = (pageNum - 1) * rowsPerPage;
                 endIndex = pageNum * rowsPerPage > arrData.length ? arrData.length - 1 : pageNum * rowsPerPage - 1;
                 for (i = startIndex; i <= endIndex; i++) {
@@ -508,7 +502,7 @@
 
                 }
 
-                // Show pager row if there is more than one page
+
                 pages = Math.floor(arrData.length / rowsPerPage);
                 if (pages < arrData.length / rowsPerPage) {
                     pages += 1;
@@ -530,7 +524,7 @@
                     $('#tblAnswer').append(pager);
 
 
-                    // Pager link event handler
+
                     $('#tblAnswer tr td.pagerRow a').click(function (e) {
                         e.preventDefault();
                         var pNum = parseInt($(this).text());

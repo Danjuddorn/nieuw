@@ -10,7 +10,7 @@ namespace MtsSurvey.Controllers
     [Authorize(Roles = "Admin")]
     public class CompanyController : Controller
     {
-        // GET: Company
+        
         public ActionResult CompanyIndex()
         {
             return View();

@@ -10,7 +10,7 @@ namespace MtsSurvey.Controllers
     [Authorize(Roles = "Admin")]
     public class SurveyQuestionController : Controller
     {
-        // GET: SurveyQuestion
+        // SurveyQuestion ophalen
         public ActionResult SurveyQuestionIndex()
         {
             List<SurveyType> SurveyTypeObj = new List<SurveyType>() {  new SurveyType{ SurveyText = "Options", SurveyTypeId = 1}, 
@@ -74,7 +74,6 @@ namespace MtsSurvey.Controllers
         public ActionResult GetAllQuestion()
         {
             SurveyContext SurveyContextObj = new SurveyContext();
-          // var ActivityList1 = SurveyContextObj.DbSurveyQuestion.Select(p => new {  p.QuestionId, p.SurveyId, p.SurveySeq, p.SurveyType , p.Surveyquestion, p.PossibleAnswersID});
 
              var ActivityList = from Sq in SurveyContextObj.DbSurveyQuestion
                                 join Sa in SurveyContextObj.DbSurveyAnswerMaster on Sq.PossibleAnswersID equals Sa.AnswerID into Sr

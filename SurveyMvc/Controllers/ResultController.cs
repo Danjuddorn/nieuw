@@ -15,7 +15,6 @@ namespace SurveyMvc.Controllers
     public class ResultController : Controller
     {
        
-        // GET: Result
         public ActionResult ResultIndex()
         {
             SurveyContext SurveyContextObj = new SurveyContext();
@@ -49,7 +48,6 @@ namespace SurveyMvc.Controllers
 
         }
 
-        // GET: ActivityList
         public ActionResult GetChartData(int SurveyId)
         {
             SurveyContext SurveyContextObj = new SurveyContext();

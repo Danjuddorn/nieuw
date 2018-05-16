@@ -10,7 +10,7 @@ namespace MtsSurvey.Controllers
     [Authorize(Roles = "Admin")]
     public class SurveyMasterController : Controller
     {
-        // GET: SurveyTemplate
+        // template ophalen
         public ActionResult SurveyMasterIndex()
         {
       
@@ -101,7 +101,7 @@ namespace MtsSurvey.Controllers
               }
               else if(SurveyCustomerTemplate.DbValueChk && !SurveyCustomerTemplate.UserUpdateChk)
               {
-                  //Remove
+                  //verwijder
                   SurveyCustomerMap SurveyCustomerMapObj = SurveyContextObj.DbSurveyCustomerMap.Find(SurveyTemplateObj.SurveyId, SurveyCustomerTemplate.CustomerId);
                   SurveyContextObj.Entry(SurveyCustomerMapObj).State = System.Data.Entity.EntityState.Deleted;
               }

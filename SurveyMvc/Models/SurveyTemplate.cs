@@ -39,9 +39,7 @@ namespace MtsSurvey.Models
         private List<SurveyCustomerTemplate> _SurveyCustomerTemplateModels = new List<SurveyCustomerTemplate>();
     }
 
-    /// <summary>
-    /// SurveyCustomerTemplate
-    /// </summary>
+    
     public class SurveyCustomerTemplate
     {
         public int CustomerId { get; set; }
@@ -63,7 +61,7 @@ namespace MtsSurvey.Models
         public int SurveyType { get; set; }
         [StringLength(150)]
         public String Surveyquestion { get; set; }
-        public int? PossibleAnswersID { get; set; } // for binding
+        public int? PossibleAnswersID { get; set; } 
         public String PossibleAnswers { get; set; }
     }
 

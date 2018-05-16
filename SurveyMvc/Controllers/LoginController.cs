@@ -11,7 +11,7 @@ namespace MtsSurvey.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+        // login ophalen
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)

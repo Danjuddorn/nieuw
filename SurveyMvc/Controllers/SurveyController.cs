@@ -8,13 +8,10 @@ using System.Web.Security;
 
 namespace MtsSurvey.Controllers
 {
-    //[Authorize(Roles = "Local, Admin")]
     public class SurveyController : Controller
     {
-        // GET: Survey
         public ActionResult SurveyIndex(int _Argsurveyid = 0, int _ArgCustId = 0)
         {
-            // populate your view model with values from the database
             UserVM model = new UserVM();
             int result = SurveyCommonTask.CreateSurveyModel(_ArgCustId, _Argsurveyid, ref model);
 
@@ -30,7 +27,6 @@ namespace MtsSurvey.Controllers
            
         }
 
-        // GET: Survey
         public ActionResult CompleteSurvey()
         {
             return View();
@@ -39,7 +35,6 @@ namespace MtsSurvey.Controllers
         [HttpPost]
         public ActionResult SurveyIndex(UserVM model)
         {
-            // save and redirect
             SurveyCommonTask.SaveSurveyModel(model);
             FormsAuthentication.SignOut();
             return RedirectToAction("CompleteSurvey", "Survey");

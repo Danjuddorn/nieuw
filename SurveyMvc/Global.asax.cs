@@ -26,10 +26,7 @@ namespace SurveyMvc
             {
                 if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
                 {
-                    //try
-                    //{
-
-                        //let us take out the username now                
+                              
                         string CookieName = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
                         String[] CustomerStrSpl = CookieName.Split(':');
 
@@ -51,17 +48,11 @@ namespace SurveyMvc
                             
                         }
 
-                        //let us extract the roles from our own custom cookie
 
 
                         HttpContext.Current.User = new System.Security.Principal.GenericPrincipal(
                              new System.Security.Principal.GenericIdentity(username, "Forms"), CustomerStrSpl[1].Split(';'));
 
-                    //}
-                    //catch (Exception)
-                    //{
-                    //    //somehting went wrong
-                    //}
                 }
             }
         }

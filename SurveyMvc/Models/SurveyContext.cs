@@ -11,7 +11,6 @@ namespace MtsSurvey.Models
         public SurveyContext()
             : base("name = SurveyDb")
         {
-           // Database.SetInitializer<SurveyContext>(new DropCreateDatabaseIfModelChanges<SurveyContext>());
 
             Database.SetInitializer<SurveyContext>(new AdminLoginInitializer());
         }
@@ -29,9 +28,6 @@ namespace MtsSurvey.Models
        
     }
 
-    /// <summary>
-    /// AdminLogin seed
-    /// </summary>
     public class AdminLoginInitializer : DropCreateDatabaseIfModelChanges<SurveyContext>
     {
         protected override void Seed(SurveyContext context)

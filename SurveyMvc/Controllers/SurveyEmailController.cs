@@ -12,7 +12,6 @@ namespace SurveyMvc.Controllers
     [Authorize(Roles = "Admin")]
     public class SurveyEmailController : Controller
     {
-        // GET: SurveyEmail
         public ActionResult SurveyEmailIndex()
         {
             EmailTemplate EmailTemplateObj = new EmailTemplate();
@@ -27,17 +26,17 @@ namespace SurveyMvc.Controllers
         }
 
         /// <summary>
-        ///  SendEmail to customers
+        ///  SendEmail naar customers
         /// </summary>
         /// <param name="EmailTemplateObj"></param>
         /// <returns></returns>
         [HttpPost]
         public ActionResult SendEmail(EmailTemplate EmailTemplateObj)
         {
-            // Gmail Address from where you send the mail
+            // email adres afzender
             var fromAddress = "survey@dminterface.nl";
             var userName = "apikey";
-            //Password of your gmail address
+            // wachtwoord voor email
             const string fromPassword = "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";
 
             SurveyContext SurveyContextObj = new SurveyContext();
@@ -83,7 +82,7 @@ namespace SurveyMvc.Controllers
         }
 
         /// <summary>
-        /// Get selected Survey Details
+        /// Get geselecteerde Survey Details
         /// </summary>
         /// <param name="SurveyId"></param>
         /// <returns></returns>

@@ -10,7 +10,7 @@ namespace MtsSurvey.Controllers
     [Authorize(Roles = "Admin")]
     public class PossibleOptionController : Controller
     {
-        // GET: SurveyAnswer
+
         public ActionResult PossibleOptionIndex()
         {
            
@@ -82,7 +82,6 @@ namespace MtsSurvey.Controllers
             return Json(ActivityList, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: ActivityList
         public ActionResult GetSelectedSurveyAnswer(int AnswerID)
         {
             SurveyContext SurveyContextObj = new SurveyContext();
@@ -100,7 +99,6 @@ namespace MtsSurvey.Controllers
             return Json(SurveyAnsMasterModelObj, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: ActivityList
         public ActionResult GetAllSurveyAnswer()
         {
             SurveyContext SurveyContextObj = new SurveyContext();

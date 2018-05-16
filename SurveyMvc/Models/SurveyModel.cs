@@ -8,9 +8,7 @@ using System.Web;
 
 namespace MtsSurvey.Models
 {
-    /// <summary>
-    /// AdminLogin
-    /// </summary>
+   
     public class AdminLogin
     {
         public AdminLogin() { }
@@ -24,9 +22,7 @@ namespace MtsSurvey.Models
     }
         
 
-    /// <summary>
-    /// Company
-    /// </summary>
+  
     public class Company
     {
         public Company() {
@@ -40,9 +36,7 @@ namespace MtsSurvey.Models
 
         public virtual ICollection<CustomerMaster> NavCustomerMaster { get; set; }
     }
-    /// <summary>
-    /// CustomerMaster
-    /// </summary>
+  
     public class CustomerMaster
     {
         public CustomerMaster() { }
@@ -61,9 +55,7 @@ namespace MtsSurvey.Models
          [ForeignKey("CompanyId")]
         public virtual Company NavCompany { get; set; }
     }
-    /// <summary>
-    /// SurveyMaster
-    /// </summary>
+   
     public class SurveyMaster
     {
         public SurveyMaster() 
@@ -84,9 +76,7 @@ namespace MtsSurvey.Models
 
     }
 
-     /// <summary>
-    /// SurveyCustomerMap
-    /// </summary>
+  
     public class SurveyCustomerMap
     {
         public SurveyCustomerMap()
@@ -111,9 +101,7 @@ namespace MtsSurvey.Models
 
     }
 
-    /// <summary>
-    /// SurveyMaster
-    /// </summary>
+ 
     public class SurveyQuestion
     {
         public SurveyQuestion()
@@ -135,19 +123,15 @@ namespace MtsSurvey.Models
 
     }
 
-     /// <summary>
-    /// SurveyAnswer PossibleAnswers
-    /// </summary>
+    
     public class SurveyAnswerMaster
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int AnswerID { get; set; }
         public string Caption { get; set; }
     }
-    /// <summary>
-    /// SurveyAnswer PossibleAnswers
-    /// </summary>
+   
     public class SurveyAnswer
     {
         [Key]
@@ -161,9 +145,7 @@ namespace MtsSurvey.Models
 
     }
 
-    /// <summary>
-    /// SurveyResult
-    /// </summary>
+  
     public class SurveyResult
     {
         public SurveyResult() { }
@@ -188,8 +170,7 @@ namespace MtsSurvey.Models
         [ForeignKey("CustomerId")]
         public virtual CustomerMaster NavCustomerMaster { get; set; }
 
-        //[ForeignKey("SurveyId")]
-        //public virtual SurveyMaster NavSurveyMaster { get; set; }
+        
 
         [ForeignKey("QuestionId")]
         public virtual SurveyQuestion NavSurveyQuestion { get; set; }

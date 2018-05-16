@@ -10,7 +10,7 @@ namespace MtsSurvey.Controllers
     [Authorize(Roles = "Admin")]
     public class CustomerController : Controller
     {
-        // GET: Customer
+        // customer ophalen
         public ActionResult CustomerIndex()
         {
             SurveyContext SurveyContextObj = new SurveyContext();
@@ -55,12 +55,11 @@ namespace MtsSurvey.Controllers
             return Json(CustomerModelObj);
         }
 
-        // GET: ActivityList
         public ActionResult GetAllCustomer()
         {
             SurveyContext SurveyContextObj = new SurveyContext();
             var ActivityList = SurveyContextObj.DbCustomerMaster.Select(p => new {  p.CompanyId, p.CustomerId, p.CustomerName, p.NavCompany.CompanyName , p.Email,p.passcode});
-            //var ActivityList = new SelectList(SurveyContextObj.DbCustomerMaster, "CustomerId", "CompanyId", "CustomerName", "Email", "passcode", "SurveyStatus");
+           
             return Json(ActivityList, JsonRequestBehavior.AllowGet);
         }
     }

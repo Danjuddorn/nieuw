@@ -27,9 +27,6 @@ namespace MtsSurvey.Models
     }
 
 
-    /// <summary>
-    /// EmailSurveyCustomerMap
-    /// </summary>
     public class EmailSurveyCustomerMap
     {
         public int CustomerId { get; set; }

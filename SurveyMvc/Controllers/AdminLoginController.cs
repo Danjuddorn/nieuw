@@ -10,7 +10,7 @@ namespace SurveyMvc.Controllers
 {
     public class AdminLoginController : Controller
     {
-        // GET: Login
+        //om login te krijgen
         public ActionResult Index()
         {
             if (User.IsInRole("Admin"))

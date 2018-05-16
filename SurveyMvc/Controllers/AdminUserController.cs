@@ -10,7 +10,7 @@ namespace SurveyMvc.Controllers
     [Authorize(Roles = "Admin")]
     public class AdminUserController : Controller
     {
-        // GET: Company
+        // company krijgen
         public ActionResult AdminUserIndex()
         {
             return View();
@@ -49,7 +49,7 @@ namespace SurveyMvc.Controllers
             return Json(AdminuserModelObj);
         }
 
-        // GET: ActivityList
+        // activiteiten lijst
         public ActionResult GetAllAdminUser()
         {
             SurveyContext SurveyContextObj = new SurveyContext();

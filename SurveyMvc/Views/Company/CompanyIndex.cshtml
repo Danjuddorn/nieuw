@@ -54,11 +54,9 @@
 </div>
 
 
-<!-- Modal Add Customer -->
 <div id="myModal" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog">
 
-        <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header  clearfix">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -88,11 +86,9 @@
     </div>
 </div>
 
-<!-- Modal Edit/Delete comapny -->
 <div id="myDelModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
-        <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header  clearfix">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -135,7 +131,6 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script>
 
-        // Global variable for table data
         var tableData = null;
         var pNumKeep = 1;
 
@@ -143,7 +138,6 @@
             handle: ".modal-header"
         });
 
-        //edit delete js
         function validator() {
             return $('#frmEdtID').valid();
 
@@ -199,7 +193,6 @@
                         $('#CompanyId1').val("");
                         $('#CompanyName1').val("");
 
-                        // Show pager row if there is more than one page
                         var pages = Math.floor(tableData.length / 10);
                         if (pages < tableData.length / 10) {
                             pages += 1;
@@ -234,10 +227,8 @@
                     $(this).addClass('danger').siblings().removeClass('danger');
                 }
 
-                //alert($(this).children('td:nth-child(2)').html());
                 $('#CompanyId1').val($(this).children('td:nth-child(1)').html());
                 $('#CompanyName1').val($(this).children('td:nth-child(2)').html());
-                // $('#myDelModal').modal('toggle');
             }
         });
 
@@ -265,28 +256,23 @@
 
         $(document).ready(function () {
 
-            $(".nav li").removeClass("active");//this will remove the active class from  
-            //previously active menu item 
+            $(".nav li").removeClass("active"); 
+
             $('#navCompany').addClass('active');
 
-            //console.log("window ready");
-            // Populate categories when the page is loaded.
             $.getJSON('/Company/GetAllCompany', function (data) {
-                // Populate table from Json data returned from server.
+         
                 PopulateTable(data, 1);
                 pNumKeep = 1;
                 tableData = data.slice(0);
 
             }).fail(function (jqXHR, textStatus, errorThrown) {
-                // Ajax fail callback function.
                 alert('Error getting products!');
             });
 
-            // Link ActivityId ID click event handler
             $('#lnkCompanyID').click(function (e) {
                 e.preventDefault();
                 if (tableData != null) {
-                    // Sort data
                     tableData.sort(function (a, b) {
                         return a.CompanyId <= b.CompanyId ? -1 : 1;
                     });
@@ -294,11 +280,11 @@
                 }
             });
 
-            // Link date Name click event handler
+
             $('#lnkCompanyName').click(function (e) {
                 e.preventDefault();
                 if (tableData != null) {
-                    // Sort data
+
                     tableData.sort(function (a, b) {
                         return a.CompanyName <= b.CompanyName ? -1 : 1;
                     });
@@ -306,7 +292,6 @@
                 }
             });
 
-            // row full selection
             $('#tblProducts tr').click(function () {
                 var href = $(this).find("a").attr("href");
                 if (href) {
@@ -316,10 +301,7 @@
 
         });
 
-        // Populate table with pager.
-        // Parameters
-        // arrData - table data
-        // pageNum - table page number
+
         function PopulateTable(arrData, pageNum) {
             var rowsPerPage = 10;
             var pages;
@@ -331,7 +313,7 @@
 
             $('#tblCompany tr:gt(0)').remove();
             if (arrData != null) {
-                // Populate table with data in the current page.
+
                 startIndex = (pageNum - 1) * rowsPerPage;
                 endIndex = pageNum * rowsPerPage > arrData.length ? arrData.length - 1 : pageNum * rowsPerPage - 1;
                 for (i = startIndex; i <= endIndex; i++) {
@@ -344,7 +326,6 @@
 
                 }
 
-                // Show pager row if there is more than one page
                 pages = Math.floor(arrData.length / rowsPerPage);
                 if (pages < arrData.length / rowsPerPage) {
                     pages += 1;
@@ -366,7 +347,6 @@
                     $('#tblCompany').append(pager);
 
 
-                    // Pager link event handler
                     $('#tblCompany tr td.pagerRow a').click(function (e) {
                         e.preventDefault();
                         var pNum = parseInt($(this).text());

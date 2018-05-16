@@ -17,13 +17,7 @@ namespace MtsSurvey.Models
         [Display(Name = "Password")]
         public int Password { get; set; }
 
-        /// <summary>
-        /// For customer survey loag in
-        /// </summary>
-        /// <param name="_UserEmail"></param>
-        /// <param name="_password"></param>
-        /// <param name="_CustomerId"></param>
-        /// <returns></returns>
+       
         public bool IsValidCustomer(string _UserEmail, int _password, ref int _CustomerId)
         {
             SurveyContext SurveyContextObj = new SurveyContext();
@@ -40,13 +34,7 @@ namespace MtsSurvey.Models
                  return true;
             }
         }
-        /// <summary>
-        /// For Application admin Login.
-        /// </summary>
-        /// <param name="_UserEmail"></param>
-        /// <param name="_password"></param>
-        /// <param name="_UserId"></param>
-        /// <returns></returns>
+       
         public bool IsValidUser(string _UserEmail, int _password, ref int _UserId)
         {
             SurveyContext SurveyContextObj = new SurveyContext();

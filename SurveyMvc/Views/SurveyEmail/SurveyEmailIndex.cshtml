@@ -104,13 +104,12 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
-        //For Add And update object of SurveyMaster
+
         var EmailTemplateData = null;
 
         $(document).ready(function () {
 
-            $(".nav li").removeClass("active");//this will remove the active class from
-            //previously active menu item
+            $(".nav li").removeClass("active");
             $('#navSurveyEmail').addClass('active');
 
             LoadCustSurveyMap();

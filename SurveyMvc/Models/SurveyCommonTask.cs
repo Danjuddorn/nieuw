@@ -14,7 +14,7 @@ namespace MtsSurvey.Models
             CustomerMaster CustomerMasterObj = SurveyContextObj.DbCustomerMaster.Where(sa => sa.CustomerId == CustomerId).FirstOrDefault();
             SurveyCustomerMap SurveyCustomerMapObj;
 
-            if (_Surveyid == 0) // take first active survey
+            if (_Surveyid == 0) 
             {
                 SurveyCustomerMapObj = SurveyContextObj.DbSurveyCustomerMap.Where(p => p.CustomerId == CustomerId && p.SurveyStatus == false && p.NavSurveyMaster.DateStart <= DateTime.Now && p.NavSurveyMaster.DateEnd >= DateTime.Now).FirstOrDefault();
             }
@@ -25,7 +25,7 @@ namespace MtsSurvey.Models
             }
             if (SurveyCustomerMapObj == default(SurveyCustomerMap))
             {
-                return 1; // survay completed.
+                return 1; 
             }
 
 
@@ -58,12 +58,12 @@ namespace MtsSurvey.Models
                 model.NavQuestions.Add(QuestionVMObj);
             }
 
-            return 0; // survey ready.
+            return 0; 
         }
 
         public static bool SaveSurveyModel(UserVM model)
         {
-            //try
+           
            {
                 SurveyContext SurveyContextObj = new SurveyContext();
 
@@ -86,9 +86,9 @@ namespace MtsSurvey.Models
                 SurveyContextObj.SaveChanges();
                 return true;
             }
-            //catch
+            
             {
-             //   return false;
+             
             }
         }
     }
