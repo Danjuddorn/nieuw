@@ -512,7 +512,6 @@
     <Content Include="Views\AdminUser\AdminUserIndex.cshtml" />
     <Content Include="Views\Result\ResultIndex.cshtml" />
     <Content Include="Views\Help\HelpIndex.cshtml" />
-    <Content Include="Content\variables.less" />
     <Content Include="Content\images\image001.png" />
   </ItemGroup>
   <ItemGroup>
