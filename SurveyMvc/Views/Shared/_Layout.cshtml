@@ -20,9 +20,6 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a href='@Url.Action("Index", "Home")'>
-                    <img class="img-responsive" src="~/Content/images/logo2.png" width="50%" />
-                </a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -34,9 +31,6 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a href='@Url.Action("Index", "Home")'>
-                    <img class="img-responsive" src="~/Content/images/logo2.png" width="50%" />
-                </a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -45,6 +39,7 @@
                </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li><a href='@Url.Action("Index", "Home")'><img class="img-responsive" src="~/Content/images/image001.jpg" width="50"/></a></li>
                     <li id="navHome" class="active"><a href="/Home/Index"><span class="hidden-xs showopacity icon-dashboard"></span> Overzicht</a></li>
                     <li id="navCompany"><a href="/Company/CompanyIndex"><span class="hidden-xs showopacity icon-sitemap"></span> Klanten</a></li>
                     <li id="navCustomer"><a href="/Customer/CustomerIndex"><span class="hidden-xs showopacity icon-globe"></span> Contactpersoon</a></li>
