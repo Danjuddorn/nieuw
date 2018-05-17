@@ -440,8 +440,11 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\font\fontawesome-webfont-0.eot" />
     <Content Include="Content\font\fontawesome-webfont-62877.eot" />
     <Content Include="Content\font\fontawesome-webfont-62877.ttf" />
@@ -465,6 +468,8 @@
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\datepicker.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
@@ -492,6 +497,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Company\CompanyIndex.cshtml" />
     <Content Include="Views\Customer\CustomerIndex.cshtml" />
     <Content Include="Views\SurveyMaster\SurveyMasterIndex.cshtml" />
@@ -508,60 +514,14 @@
     <Content Include="Views\Help\HelpIndex.cshtml" />
     <Content Include="Content\variables.less" />
     <Content Include="Content\images\image001.png" />
-    <None Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <None Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0-vsdoc.js" />
-    <None Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Scripts\umd\popper.min.js" />
-    <None Include="Scripts\umd\popper.js.map" />
-    <Content Include="Scripts\umd\popper.js" />
-    <None Include="Scripts\umd\popper-utils.min.js.map" />
-    <Content Include="Scripts\umd\popper-utils.min.js" />
-    <None Include="Scripts\umd\popper-utils.js.map" />
-    <Content Include="Scripts\umd\popper-utils.js" />
-    <None Include="Scripts\README.md" />
-    <None Include="Scripts\popper.min.js.map" />
-    <Content Include="Scripts\popper.min.js" />
-    <None Include="Scripts\popper.js.map" />
-    <Content Include="Scripts\popper.js" />
-    <None Include="Scripts\popper-utils.min.js.map" />
-    <Content Include="Scripts\popper-utils.min.js" />
-    <None Include="Scripts\popper-utils.js.map" />
-    <Content Include="Scripts\popper-utils.js" />
-    <None Include="Scripts\index.d.ts" />
-    <None Include="Scripts\esm\popper.min.js.map" />
-    <Content Include="Scripts\esm\popper.min.js" />
-    <None Include="Scripts\esm\popper.js.map" />
-    <Content Include="Scripts\esm\popper.js" />
-    <None Include="Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <None Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <None Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.js" />
-    <None Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <None Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <None Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
-    <None Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-reboot.css" />
-    <None Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css" />
-    <None Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Content\bootstrap-grid.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
