@@ -6,48 +6,54 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
 namespace SurveyMvc.Controllers
 {
-     [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class ResultController : Controller
     {
-       
+
+
+        public void ExportToCSV2()
+        {
+            StringWriter sw = new StringWriter();
+
+            sw.WriteLine("\"ID\",\"Naam\",\"Startdatum\",\"Einddatum\"");
+
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", "attachment;filename=registereduser.csv");
+            Response.ContentType = "application/octet-stream";
+
+            ResultClass db = new ResultClass();
+            SurveyContext SurveyContextObj = new SurveyContext();
+            var users = SurveyContextObj.DbSurveyMaster.Select(p => new { p.SurveyId, p.SurveyCaption, p.DateStart, p.DateEnd }).ToList();
+
+            foreach (var user in users)
+            {
+                sw.WriteLine(string.Format("\"{0}\", \"{1}\", \"{2}\", \"{3}\"",
+
+                user.SurveyId,
+                user.SurveyCaption,
+                user.DateStart,
+                user.DateEnd
+
+                ));
+            }
+            Response.Write(sw.ToString());
+            Response.End();
+
+        }
         public ActionResult ResultIndex()
         {
             SurveyContext SurveyContextObj = new SurveyContext();
             ViewBag.SurveyBag = new SelectList(SurveyContextObj.DbSurveyMaster, "SurveyId", "SurveyCaption");
-            
-  
+
+
             return View();
         }
-       
-        public void ExportToCSV()
-        {
-            StringWriter sw = new StringWriter();
-
-            sw.WriteLine("\"QuestionId\"");
-            Response.ClearContent();
-            Response.AddHeader("content-disposition","attachment;filename=ExportedClientslist.csv");
-            Response.ContentType = "text/csv";
-
-            var clients = ResultSQ.GenerateDummyClientList();
-
-            foreach (var Client in clients)
-            {
-                sw.WriteLine(string.Format("\"{0}\"",
-                    Client.QuestionId));
-            }
-            Response.Write(sw.ToString());
-            Response.End();
-        }
-        public void ExportToExcel()
-        {
-
-        }
-
         public ActionResult GetChartData(int SurveyId)
         {
             SurveyContext SurveyContextObj = new SurveyContext();
@@ -79,17 +85,17 @@ namespace SurveyMvc.Controllers
                         List<int> Chartdata = new List<int>();
 
                         var SurveyAnsResultList = from SA in SurveyContextObj.DbSurveyAnswer.Where(p => p.AnswerID == SurveyQuestObj.PossibleAnswersID).OrderBy(ord => ord.AnswerSeq).Select(s => new { s.AnswerSeq, s.AnswerText })
-                                                 join SR in SurveyContextObj.DbSurveyResult.Where(p => p.SurveyId == SurveyId && p.QuestionId == SurveyQuestObj.QuestionId && p.SurveyPoint != 0)
-                                                 .GroupBy(grp => grp.SurveyPoint)
-                                                 .Select(g => new { g.Key, count = g.Count() })
-                                                 on SA.AnswerSeq equals SR.Key into SJR
-                                                 from SJRD in SJR.DefaultIfEmpty()
-                                                 select new
-                                                 {
-                                                     AnswerSeq = SA.AnswerSeq,
-                                                     AnswerText = SA.AnswerText.Substring(0, 10),
-                                                     count = (SJRD == null ? 0 : SJRD.count)
-                                                 };
+                                                  join SR in SurveyContextObj.DbSurveyResult.Where(p => p.SurveyId == SurveyId && p.QuestionId == SurveyQuestObj.QuestionId && p.SurveyPoint != 0)
+                                                  .GroupBy(grp => grp.SurveyPoint)
+                                                  .Select(g => new { g.Key, count = g.Count() })
+                                                  on SA.AnswerSeq equals SR.Key into SJR
+                                                  from SJRD in SJR.DefaultIfEmpty()
+                                                  select new
+                                                  {
+                                                      AnswerSeq = SA.AnswerSeq,
+                                                      AnswerText = SA.AnswerText.Substring(0, 10),
+                                                      count = (SJRD == null ? 0 : SJRD.count)
+                                                  };
 
                         foreach (var SARData in SurveyAnsResultList)
                         {
@@ -104,11 +110,11 @@ namespace SurveyMvc.Controllers
                     {
                         ResultSQs.SurveyNote = new List<NoteClass>();
                         var SurveyNoteList = from SR in SurveyContextObj.DbSurveyResult.Where(p => p.SurveyId == SurveyId && p.QuestionId == SurveyQuestObj.QuestionId)
-                                                     select new NoteClass()
-                                                      {
-                                                          CustomerName = SR.NavCustomerMaster.CustomerName,
-                                                          CustomerNote = SR.SurveyReply
-                                                      };
+                                             select new NoteClass()
+                                             {
+                                                 CustomerName = SR.NavCustomerMaster.CustomerName,
+                                                 CustomerNote = SR.SurveyReply
+                                             };
 
 
                         ResultSQs.SurveyNote.AddRange(SurveyNoteList);
@@ -116,7 +122,7 @@ namespace SurveyMvc.Controllers
                     }
                     ResultClassObj.ResultSQs.Add(ResultSQs);
                 }
-    
+
             }
             return Json(ResultClassObj, JsonRequestBehavior.AllowGet);
         }
