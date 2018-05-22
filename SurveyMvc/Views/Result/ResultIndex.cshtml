@@ -39,20 +39,19 @@
                         <div class="panel-body">
                             <div class="form-group row">
 
-                                @Html.Label("Startdatum", htmlAttributes: new { @class = "control-label col-md-1" })
+                                @Html.Label("Startdatum", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-2">
                                     @Html.Editor("startdatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateStart", @readonly = "readonly", } })
                                 </div>
-                                @Html.Label("einddatum", htmlAttributes: new { @class = "control-label col-md-1" })
+                                @Html.Label("einddatum", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-2">
                                     @Html.Editor("einddatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateEnd", @readonly = "readonly" } })
                                 </div>
                                 @Html.Label("Export als .Csv", htmlAttributes: new { @class = "control-label col-md-2s" })
                                 <div class="col-md-2">
-                                    <button class="btn-primary" formaction="">
+                                    <button class="btn-default" formaction="">
                                         @Html.ActionLink("Exporteren naar CSV", "ExportToCSV2")
-
-                                    </button>
+                                        </button>
                                 </div>
 
                             </div>
@@ -60,98 +59,101 @@
                     </div>
                     <div class=row>
                     <div class="container" id="ChartId"></div>
-
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+            <script>$(document).ready(function() {
 
-    <script>$(document).ready(function() {
+                    $(".nav li").removeClass("active");
+                    $('#navResult').addClass('active');
 
-            $(".nav li").removeClass("active");
-            $('#navResult').addClass('active');
-
-            LoadSurveyResult();
+                    LoadSurveyResult();
 
 });
 
 $(function() {
-            $("#SurveyId").change(function() {
-                LoadSurveyResult();
-            });
+                    $("#SurveyId").change(function() {
+                        LoadSurveyResult();
+                    });
 });
 
 function LoadSurveyResult() {
 
-            var SurveyId = $('option:selected', $("#SurveyId")).val();
-            if (SurveyId == 0)
-                return true;
+                    var SurveyId = $('option:selected', $("#SurveyId")).val();
+                    if (SurveyId == 0)
+                        return true;
 
-            EmailTemplateData = null;
+                    EmailTemplateData = null;
 
-            $.ajax({
-                url: "/Result/GetChartData",
-                contentType: "application/json; charset=utf-8",
-                type: "POST",
-                data: '{ SurveyId: ' + $('#SurveyId').val() + ' }',
-                dataType: "json",
-                success: function(result) {
+                    $.ajax({
+                        url: "/Result/GetChartData",
+                        contentType: "application/json; charset=utf-8",
+                        type: "POST",
+                        data: '{ SurveyId: ' + $('#SurveyId').val() + ' }',
+                        dataType: "json",
+                        success: function(result) {
 
-                    PopulateChartData(result);
+                            PopulateChartData(result);
 
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    alert('Error getting CustomerSurveyMap!');
-                }
-            });
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            alert('Error getting CustomerSurveyMap!');
+                        }
+                    });
 
 }
 
 function PopulateChartData(ChartData) {
 
-            $('.AnsRow').empty();
+                    $('.AnsRow').empty();
 
-            $('#DateStart').val(ChartData.DateStart);
-            $('#DateEnd').val(ChartData.DateEnd);
+                    $('#DateStart').val(ChartData.DateStart);
+                    $('#DateEnd').val(ChartData.DateEnd);
 
-            $.each(ChartData.ResultSQs, function(index, item) {
-                if (item.SurveyType == 1) {
+                    $.each(ChartData.ResultSQs, function(index, item) {
+                        if (item.SurveyType == 1) {
 
-                    var Maindiv = $('<div class="AnsRow"> <div class="panel panel-default">' +
-                        '<div class="panel-heading" style="height: 50px;padding:10px">' +
-                        '<label class ="control-label col-md-4">' + item.Surveyquestion + '</label>'
-                        + '</div> <div class="panel-body"><div class="form-group row col-md-4 col-sm-4 col-xs-4">'
-                        + '<canvas id="canvas' + index + '" height="20" width="30"></canvas> </div> </div> </div></div>');
+                            var Maindiv = $('<div class="AnsRow"> <div class="panel panel-default">' +
+                                '<div class="panel-heading" style="height: 50px;padding:10px">' +
+                                '<label class ="control-label col-md-4">' + item.Surveyquestion + '</label>'
+                                + '</div> <div class="panel-body"><div class="form-group row col-md-4 col-sm-4 col-xs-4">'
+                                + '<canvas id="canvas' + index + '" height="20" width="30"></canvas> </div> </div> </div></div>');
 
-                    $('#ChartId').append(Maindiv);
+                            $('#ChartId').append(Maindiv);
 
-                    var ctx = $('#canvas' + index).get(0).getContext("2d");
-                    var myBarChart = new Chart(ctx).Bar(item.ChartData, { responsive: true });
-                }
-                else if (item.SurveyType == 2) {
-                    var MaindivStr = '<div class="AnsRow"> <div class="panel panel-default">' +
-                        '<div class="panel-heading" style="height: 50px;padding:10px">' +
-                        '<label class ="control-label col-md-4">' + item.Surveyquestion + '</label>'
-                        + '</div> <div class="panel-body  Scroll-panel">';
+                            var ctx = $('#canvas' + index).get(0).getContext("2d");
+                            var myBarChart = new Chart(ctx).Bar(item.ChartData, { responsive: true });
+                        }
+                        else if (item.SurveyType == 2) {
+                            var MaindivStr = '<div class="AnsRow"> <div class="panel panel-default">' +
+                                '<div class="panel-heading" style="height: 50px;padding:10px">' +
+                                '<label class ="control-label col-md-4">' + item.Surveyquestion + '</label>'
+                                + '</div> <div class="panel-body  Scroll-panel">';
 
-                    $.each(item.SurveyNote, function(indexNote, itemNote) {
+                            $.each(item.SurveyNote, function(indexNote, itemNote) {
 
-                        MaindivStr += '<div class="well wellmargin well-sm">';
-                        MaindivStr += '<Strong>' + itemNote.CustomerName + '</Strong>: ' + itemNote.CustomerNote + '</div>';
+                                MaindivStr += '<div class="well wellmargin well-sm">';
+                                MaindivStr += '<Strong>' + itemNote.CustomerName + '</Strong>: ' + itemNote.CustomerNote + '</div>';
+                            });
+
+                            MaindivStr += '</div></div></div>';
+
+                            var Maindiv = $(MaindivStr);
+                            $('#ChartId').append(Maindiv);
+                        }
+
                     });
 
-                    MaindivStr += '</div></div></div>';
-
-                    var Maindiv = $(MaindivStr);
-                    $('#ChartId').append(Maindiv);
-                }
-
-            });
-
 }</script>
-}
+        }
+
+    </div>
+</div>
