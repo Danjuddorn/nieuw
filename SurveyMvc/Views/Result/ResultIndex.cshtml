@@ -21,77 +21,41 @@
 </ul>
 
 <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="panel panel-primary">
-            <div class="panel-heading" style="height: 50px;padding:10px">
-                <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Enquête Charts</h4>
-            </div>
-
-            <div class="panel-body">
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading" style="height: 75px;padding:10px">
-                            @Html.Label("Survey", htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-12">
-                                @Html.DropDownList("SurveyBag", null, htmlAttributes: new { @class = "form-control input-sm", @id = "SurveyId" })
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="form-group row">
-
-                                @Html.Label("Startdatum", htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-4">
-                                    @Html.Editor("startdatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateStart", @readonly = "readonly", } })
-                                </div>
-                                @Html.Label("einddatum", htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-4">
-                                    @Html.Editor("einddatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateEnd", @readonly = "readonly" } })
-                                </div>
-                                @Html.Label("Export als .Csv", htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-4">
-                                    <button class="btn btn-default" formaction="">
-                                        @Html.ActionLink("export to csv", "ExportToCSV2")
-                                       
-                                        CSV
-
-                                    </button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container" id="ChartId">
-
-                    </div>
+    <div class="panel panel-primary-heading-bg">                 <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Enquêe Charts</h4>         </div>              <div class="panel-body">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="height: 75px;padding:10px">                             @Html.Label("Survey", htmlAttributes: new { @class = "control-label col-md-4" })                                 @Html.DropDownList("SurveyBag", null, htmlAttributes: new { @class = "form-control input-sm", @id = "SurveyId" })                        </div>                         <div class="panel-body">
+                    <div class="form-group row">                                 @Html.Label("Startdatum", htmlAttributes: new { @class = "control-label col-md-2" })                                 <div class="col-md-3”>                                     @Html.Editor(" startdatum", new { htmlAttributes=new { @class="form-control input-sm" , @id="DateStart" , @readonly="readonly" , } })                                 </div>                                 @Html.Label("einddatum", htmlAttributes: new { @class = "control-label col-md-2" })                                 <div class="col-md-3”>                                     @Html.Editor(" einddatum", new { htmlAttributes=new { @class="form-control input-sm" , @id="DateEnd" , @readonly="readonly" } })                                 </div>                                 @Html.Label("Export als .Csv", htmlAttributes: new { @class = "control-label col-md-2" })                                 <div class="col-md-3”>                                     <button class="btn btn-default" formaction="">                                         @Html.ActionLink("export to csv", "ExportToCSV2")                                                                                 CSV                                                                             </button>                                 </div>                             </div>
                 </div>
+
+            </div>
+            <div class="class=col-md-12">
+                <div class="container" id="ChartId"></div>
             </div>
         </div>
     </div>
-</div>
+</div>  
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script>
-
-        $(document).ready(function () {
+    <script>$(document).ready(function() {
 
             $(".nav li").removeClass("active");
             $('#navResult').addClass('active');
 
             LoadSurveyResult();
 
-        });
+});
 
-        $(function () {
-            $("#SurveyId").change(function () {
+$(function() {
+            $("#SurveyId").change(function() {
                 LoadSurveyResult();
             });
-        });
+});
 
-        function LoadSurveyResult() {
+function LoadSurveyResult() {
 
             var SurveyId = $('option:selected', $("#SurveyId")).val();
             if (SurveyId == 0)
@@ -105,33 +69,33 @@
                 type: "POST",
                 data: '{ SurveyId: ' + $('#SurveyId').val() + ' }',
                 dataType: "json",
-                success: function (result) {
+                success: function(result) {
 
                     PopulateChartData(result);
 
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
+                error: function(jqXHR, textStatus, errorThrown) {
                     alert('Error getting CustomerSurveyMap!');
                 }
             });
 
-        }
+}
 
-        function PopulateChartData(ChartData) {
+function PopulateChartData(ChartData) {
 
             $('.AnsRow').empty();
 
             $('#DateStart').val(ChartData.DateStart);
             $('#DateEnd').val(ChartData.DateEnd);
 
-            $.each(ChartData.ResultSQs, function (index, item) {
+            $.each(ChartData.ResultSQs, function(index, item) {
                 if (item.SurveyType == 1) {
 
                     var Maindiv = $('<div class="AnsRow"> <div class="panel panel-default">' +
-                    '<div class="panel-heading" style="height: 50px;padding:10px">' +
-                    '<label class ="control-label col-md-4">' + item.Surveyquestion + '</label>'
-                   + '</div> <div class="panel-body"><div class="form-group row col-md-4 col-sm-4 col-xs-4">'
-                    + '<canvas id="canvas' + index + '" height="20" width="30"></canvas> </div> </div> </div></div>');
+                        '<div class="panel-heading" style="height: 50px;padding:10px">' +
+                        '<label class ="control-label col-md-4">' + item.Surveyquestion + '</label>'
+                        + '</div> <div class="panel-body"><div class="form-group row col-md-4 col-sm-4 col-xs-4">'
+                        + '<canvas id="canvas' + index + '" height="20" width="30"></canvas> </div> </div> </div></div>');
 
                     $('#ChartId').append(Maindiv);
 
@@ -140,11 +104,11 @@
                 }
                 else if (item.SurveyType == 2) {
                     var MaindivStr = '<div class="AnsRow"> <div class="panel panel-default">' +
-                   '<div class="panel-heading" style="height: 50px;padding:10px">' +
-                   '<label class ="control-label col-md-4">' + item.Surveyquestion + '</label>'
-                  + '</div> <div class="panel-body  Scroll-panel">';
+                        '<div class="panel-heading" style="height: 50px;padding:10px">' +
+                        '<label class ="control-label col-md-4">' + item.Surveyquestion + '</label>'
+                        + '</div> <div class="panel-body  Scroll-panel">';
 
-                    $.each(item.SurveyNote, function (indexNote, itemNote) {
+                    $.each(item.SurveyNote, function(indexNote, itemNote) {
 
                         MaindivStr += '<div class="well wellmargin well-sm">';
                         MaindivStr += '<Strong>' + itemNote.CustomerName + '</Strong>: ' + itemNote.CustomerNote + '</div>';
@@ -158,7 +122,5 @@
 
             });
 
-        }
-
-    </script>
+}</script>
 }
