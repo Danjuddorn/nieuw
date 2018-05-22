@@ -20,46 +20,48 @@
     <li><a href="#">Charts</a></li>
 </ul>
 
-<div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="panel panel-primary">
-        <div class="panel-heading" style="height: 50px;padding:10px">
-            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Enquêe Charts</h4>
-        </div>
+<div class=row>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="height: 50px;padding:10px">
+                <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Enquêe Charts</h4>
+            </div>
 
-        <div class="panel-body">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="height: 75px; padding: 10px">
-                        @Html.Label("Survey", htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-12">
-                            @Html.DropDownList("SurveyBag", null, htmlAttributes: new { @class = "form-control input-sm", @id = "SurveyId" })
+            <div class="panel-body">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="height: 75px; padding: 10px">
+                            @Html.Label("Survey", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-12">
+                                @Html.DropDownList("SurveyBag", null, htmlAttributes: new { @class = "form-control input-sm", @id = "SurveyId" })
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group row">
+
+                                @Html.Label("Startdatum", htmlAttributes: new { @class = "control-label col-md-1" })
+                                <div class="col-md-2">
+                                    @Html.Editor("startdatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateStart", @readonly = "readonly", } })
+                                </div>
+                                @Html.Label("einddatum", htmlAttributes: new { @class = "control-label col-md-1" })
+                                <div class="col-md-2">
+                                    @Html.Editor("einddatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateEnd", @readonly = "readonly" } })
+                                </div>
+                                @Html.Label("Export als .Csv", htmlAttributes: new { @class = "control-label col-md-2s" })
+                                <div class="col-md-2">
+                                    <button class="btn-primary" formaction="">
+                                        @Html.ActionLink("Exporteren naar CSV", "ExportToCSV2")
+
+                                    </button>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="panel-body">
-                        <div class="form-group row">
+                    <div class=row>
+                    <div class="container" id="ChartId"></div>
 
-                            @Html.Label("Startdatum", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-2">
-                                @Html.Editor("startdatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateStart", @readonly = "readonly", } })
-                            </div>
-                            @Html.Label("einddatum", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-2">
-                                @Html.Editor("einddatum", new { htmlAttributes = new { @class = "form-control input-sm", @id = "DateEnd", @readonly = "readonly" } })
-                            </div>
-                            @Html.Label("Export als .Csv", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-2">
-                                <button class="btn btn-primary" formaction="">
-                                    @Html.ActionLink("Exporteren naar CSV", "ExportToCSV2")
-
-                                 </button>
-                            </div>
-
-                        </div>
                     </div>
-                </div>
-
-                <div class="container" id="ChartId">
-
                 </div>
             </div>
         </div>
