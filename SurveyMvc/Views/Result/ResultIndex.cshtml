@@ -10,14 +10,14 @@
 <div class=row>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="panel panel-primary">
-            <div class="panel-heading" style="height: 50px;padding:10px">
+            <div class="panel-heading">
                 <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Enquêe Charts</h4>
             </div>
 
             <div class="panel-body">
                 <div class="panel-group">
                     <div class="panel panel-default">
-                        <div class="panel-heading" style="height: 75px; padding: 10px">
+                        <div class="panel-heading">
                             @Html.Label("Survey", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-12">
                                 @Html.DropDownList("SurveyBag", null, htmlAttributes: new { @class = "form-control input-sm", @id = "SurveyId" })
@@ -36,7 +36,7 @@
                                 </div>
                                 @Html.Label("Export als CSV", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-2 ml-auto">
-                                    <button class="btn btn-default-bg" formaction="">
+                                    <button class="btn btn-default-bg btn-block" formaction="">
                                         @Html.ActionLink("CSV", "ExportToCSV2")
                                     </button>
                                 </div>
