@@ -24,21 +24,21 @@ namespace SurveyMvc.Controllers
             sw.WriteLine("\"ID\",\"Naam\",\"Startdatum\",\"Einddatum\"");
 
             Response.ClearContent();
-            Response.AddHeader("content-disposition", "attachment;filename=registereduser.csv");
+            Response.AddHeader("content-disposition", "attachment;filename=resultaten.csv");
             Response.ContentType = "application/octet-stream";
 
             ResultClass db = new ResultClass();
             SurveyContext SurveyContextObj = new SurveyContext();
-            var users = SurveyContextObj.DbSurveyMaster.Select(p => new { p.SurveyId, p.SurveyCaption, p.DateStart, p.DateEnd }).ToList();
+            var users = SurveyContextObj.DbSurveyResult.Select(p => new { p.SurveyId, p.SurveyPoint, p.SurveyDate, p.SurveyReply }).ToList();
 
             foreach (var user in users)
             {
-                sw.WriteLine(string.Format("\"{0}\", \"{1}\", \"{2}\", \"{3}\"",
+                sw.WriteLine(string.Format("{0},{1},{2},{3}\n",
 
                 user.SurveyId,
-                user.SurveyCaption,
-                user.DateStart,
-                user.DateEnd
+                user.SurveyPoint,
+                user.SurveyDate,
+                user.SurveyReply
 
                 ));
             }
