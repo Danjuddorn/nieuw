@@ -21,11 +21,36 @@
 </ul>
 
 <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="panel panel-primary-heading-bg">                 <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Enquêe Charts</h4>         </div>              <div class="panel-body">
+    <div class="panel panel-primary-heading-bg">
+                <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Enquêe Charts</h4>
+        </div>
+
+            <div class="panel-body">
         <div class="panel-group">
             <div class="panel panel-default">
-                <div class="panel-heading" style="height: 75px;padding:10px">                             @Html.Label("Survey", htmlAttributes: new { @class = "control-label col-md-4" })                                 @Html.DropDownList("SurveyBag", null, htmlAttributes: new { @class = "form-control input-sm", @id = "SurveyId" })                        </div>                         <div class="panel-body">
-                    <div class="form-group row">                                 @Html.Label("Startdatum", htmlAttributes: new { @class = "control-label col-md-2" })                                 <div class="col-md-3”>                                     @Html.Editor(" startdatum", new { htmlAttributes=new { @class="form-control input-sm" , @id="DateStart" , @readonly="readonly" , } })                                 </div>                                 @Html.Label("einddatum", htmlAttributes: new { @class = "control-label col-md-2" })                                 <div class="col-md-3”>                                     @Html.Editor(" einddatum", new { htmlAttributes=new { @class="form-control input-sm" , @id="DateEnd" , @readonly="readonly" } })                                 </div>                                 @Html.Label("Export als .Csv", htmlAttributes: new { @class = "control-label col-md-2" })                                 <div class="col-md-3”>                                     <button class="btn btn-default" formaction="">                                         @Html.ActionLink("export to csv", "ExportToCSV2")                                                                                 CSV                                                                             </button>                                 </div>                             </div>
+                <div class="panel-heading" style="height: 75px;padding:10px">
+                            @Html.Label("Survey", htmlAttributes: new { @class = "control-label col-md-4" })
+                                @Html.DropDownList("SurveyBag", null, htmlAttributes: new { @class = "form-control input-sm", @id = "SurveyId" })                        </div>
+                        <div class="panel-body">
+                    <div class="form-group row">
+                                @Html.Label("Startdatum", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-3”>
+                                    @Html.Editor(" startdatum", new { htmlAttributes=new { @class="form-control input-sm" , @id="DateStart" , @readonly="readonly" , } })
+                                </div>
+                                @Html.Label("einddatum", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-3”>
+                                    @Html.Editor(" einddatum", new { htmlAttributes=new { @class="form-control input-sm" , @id="DateEnd" , @readonly="readonly" } })
+                                </div>
+                                @Html.Label("Export als .Csv", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-3”>
+                                    <button class="btn btn-default" formaction="">
+                                        @Html.ActionLink("export to csv", "ExportToCSV2")
+                                       
+                                        CSV
+                                       
+                                    </button>
+                                </div>
+                            </div>
                 </div>
 
             </div>
@@ -34,7 +59,9 @@
             </div>
         </div>
     </div>
-</div>  
+</div>
+
+
 
 
 @section Scripts {
