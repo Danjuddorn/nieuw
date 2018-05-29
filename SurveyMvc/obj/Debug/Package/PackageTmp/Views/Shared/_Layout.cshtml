@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Survey </title>
+    @Styles.Render("~/Content/csss")
+    @Styles.Render("~/Content/css/font")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/jqueryui")
+    @Scripts.Render("~/bundles/jqueryui")
+    @*@Styles.Render("~/Content/themes/base/css")*@
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href='@Url.Action("Index", "Home")'><img class="img-responsive" src="~/Content/images/image001.png" width="50"/></a></li>
+                    <li id="navHome" class="active"><a href="/Home/Index"><span class="hidden-xs showopacity icon-dashboard"></span> Overzicht</a></li>
+                    <li id="navCompany"><a href="/Company/CompanyIndex"><span class="hidden-xs showopacity icon-sitemap"></span> Klanten</a></li>
+                    <li id="navCustomer"><a href="/Customer/CustomerIndex"><span class="hidden-xs showopacity icon-globe"></span> Contactpersoon</a></li>
+                    <li class="dropdown">
+                        <a href="/SurveyMaster/SurveyMasterIndex" class="dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs showopacity icon-list-alt"></span> Enquêtes<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li id="navSurveyMaster"><a href="/SurveyMaster/SurveyMasterIndex">Enquêtes</a></li>
+                            <li class="divider"></li>
+                            <li id="navSurveyQuestion"><a href="/SurveyQuestion/SurveyQuestionIndex">Vragen</a></li>
+                            <li id="navPossibleOption"><a href="/PossibleOption/PossibleOptionIndex">Antwoorden</a></li>
+                        </ul>
+                    </li>
+                    <li id="navSurveyEmail"><a href="/SurveyEmail/SurveyEmailIndex"> <span class="hidden-xs showopacity icon-share"></span> Emails</a></li>
+                    <li id="navAdminUser"><a href="/AdminUser/AdminUserIndex"><span class="hidden-xs showopacity icon-group"></span> Gebruikers login</a></li>
+                    <li id="navResult"><a href="/Result/ResultIndex"><span class="hidden-xs showopacity icon-bar-chart"></span> Resultaten</a></li>
+                    <li class="dropdown">
+                        <a href="/SurveyMaster/SurveyMasterIndex" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user "></span>@User.Identity.Name <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Profiel</a></li>
+                            <li><a href="#">Instellingen</a></li>
+                            <li class="divider"></li>
+                            <li><a href=@Url.Action("logout", "AdminLogin" )>Log uit</a></li>
+                        </ul>
+                    </li>
+                </ul>
+               </div>
+        </div>
+    </div>
+    <div id="content" class="container">
+        @RenderBody()
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Gemaakt door: Arjo Detering, Dennis Stutvoet, Maarten Graaf en Manish Kanhai</p>
+        </div>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+    @section Scripts
+    {
+    <script>function htmlbodyHeightUpdate() {
+            var height3 = $(window).height()
+            var height1 = $('.nav').height() + 50
+            height2 = $('.main').height()
+            if (height2 > height3) {
+                $('html').height(Math.max(height1, height3, height2) + 10);
+                $('body').height(Math.max(height1, height3, height2) + 10);
+            }
+            else {
+                $('html').height(Math.max(height1, height3, height2));
+                $('body').height(Math.max(height1, height3, height2));
+            }
+
+}
+$(document).ready(function() {
+
+            htmlbodyHeightUpdate()
+            $(window).resize(function() {
+                htmlbodyHeightUpdate()
+
+            });
+            $(window).scroll(function() {
+                height2 = $('.main').height()
+                htmlbodyHeightUpdate()
+            });
+
+});</script>
+    }
+</body>
+</html>
