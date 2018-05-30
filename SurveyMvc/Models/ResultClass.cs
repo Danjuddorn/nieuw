@@ -11,6 +11,7 @@ namespace SurveyMvc.Models.Result
         public String SurveyCaption { get; set; }
         public String DateStart { get; set; }
         public String DateEnd { get; set; }
+        
 
         public List<ResultSQ> ResultSQs { get; set; }
     }

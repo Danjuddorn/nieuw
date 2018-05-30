@@ -512,6 +512,7 @@
     <Content Include="Views\AdminUser\AdminUserIndex.cshtml" />
     <Content Include="Views\Result\ResultIndex.cshtml" />
     <Content Include="Views\Help\HelpIndex.cshtml" />
+    <Content Include="Content\images\image001.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -550,6 +551,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
