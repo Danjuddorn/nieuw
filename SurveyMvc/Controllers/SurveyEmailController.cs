@@ -38,7 +38,7 @@ namespace SurveyMvc.Controllers
             var fromAddress = "survey@dminterface.nl";
             var userName = "apikey";
             //Password of your gmail address
-            const string fromPassword = "wachtwoord geheim";
+            const string fromPassword = "geheim";
 
             SurveyContext SurveyContextObj = new SurveyContext();
 
@@ -56,6 +56,7 @@ namespace SurveyMvc.Controllers
 
                     mm.Subject = "DM Interface ";
                     string body = "Beste " + CustomerMasterObj.CustomerName + ", \n";
+                    body += "\n";
                     body += "\n";
 
                     body += EmailTemplateObj.EmailMsg;
