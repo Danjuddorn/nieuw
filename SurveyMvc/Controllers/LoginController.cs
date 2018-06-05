@@ -49,7 +49,7 @@ namespace MtsSurvey.Controllers
         [HttpGet]
         public ActionResult EmailLogin(String SurveyGuid)
         {
-            int SurveyId = 0;
+            int SurveyId = 3;
             string UserEmail = "";
             int Password = 0;
             SurveyContext SurveyContextObj = new SurveyContext();
