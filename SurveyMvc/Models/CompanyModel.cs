@@ -10,8 +10,8 @@ namespace MtsSurvey.Models
     {
             public int CompanyId { get; set; }
             [StringLength(50)]
-            [Required(ErrorMessage = "The CompanyName is required.")]
-            [Display(Name ="Company Name")]
+            [Required(ErrorMessage = "Dit is een vereist veld.")]
+            [Display(Name ="Bedrijfs naam")]
             public String CompanyName { get; set; }     
     }
 }

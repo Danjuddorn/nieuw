@@ -9,19 +9,19 @@ namespace MtsSurvey.Models
     public class CustomerModel
     {
         public int CustomerId { get; set; }
-        [Required(ErrorMessage = "The Company is required.")]
-        [Display(Name = "Company")]
+        [Required(ErrorMessage = "Vereist")]
+        [Display(Name = "Bedrijf")]
         public int CompanyId { get; set; }
 
-        [Display(Name = "CompanyName")]
+        [Display(Name = "Bedrijfs naam")]
         public String CompanyName { get; set; }
 
         [StringLength(50)]
-        [Required(ErrorMessage = "The CustomerName is required.")]
-        [Display(Name = "Customer Name")]
+        [Required(ErrorMessage = "Vereist")]
+        [Display(Name = "Naam klant")]
         public String CustomerName { get; set; }
         [StringLength(50)]
-        [Required(ErrorMessage = "The Email is required.")]
+        [Required(ErrorMessage = "vereist")]
         public String Email { get; set; }
         public int passcode { get; set; }
     }

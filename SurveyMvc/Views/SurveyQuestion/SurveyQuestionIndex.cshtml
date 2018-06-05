@@ -42,8 +42,8 @@
                                 @Html.DropDownList("SurveyMasterBag", null, htmlAttributes: new { @class = "form-control", @id = "SurveyMasterBagId" })
                             </caption>
                             <tr class="primary">
-                                <th><a id="lnkSequance" href="#">Number</a></th>
-                                <th style="display:none;">SurveyId</th>
+                                <th><a id="lnkSequance" href="#">Nummer</a></th>
+                                <th style="display:none;">EnquêteID</th>
                                 <th><a id="lnkQuestionId" href="#">Vraagid</a></th>
                                 <th><a id="lnkType" href="#">Soort enquête</a></th>
                                 <th>Vraag</th>
@@ -65,7 +65,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add Question</h4>
+                <h4 class="modal-title">Vraag toevoegen</h4>
             </div>
             @using (Ajax.BeginForm("AddQuestion", "SurveyQuestion", null, new AjaxOptions { UpdateTargetId = "result" }, new { @id = "frmID" }))
             {
@@ -98,7 +98,7 @@
                     <div class="form-group row">
                         @Html.LabelFor(model => model.SurveyType, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-6">
-                            @Html.DropDownList("SurveyType", (SelectList)@ViewBag.SurveyTypeBag, htmlAttributes: new { @class = "form-control  input-sm" })
+                            @Html.DropDownList("Type enquête", (SelectList)@ViewBag.SurveyTypeBag, htmlAttributes: new { @class = "form-control  input-sm" })
                             @Html.ValidationMessageFor(model => model.SurveyType, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                     <div class="form-group row" id="PosAnsID">
                         @Html.LabelFor(model => model.PossibleAnswersID, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-6">
-                            @Html.DropDownList("PossibleAnswersID", (SelectList)@ViewBag.QuestionBag, htmlAttributes: new { @class = "form-control  input-sm" })
+                            @Html.DropDownList("Antwoord", (SelectList)@ViewBag.QuestionBag, htmlAttributes: new { @class = "form-control  input-sm" })
                             @Html.ValidationMessageFor(model => model.PossibleAnswersID, "", new { @class = "text-danger" })
                             <a href="/PossibleOption/PossibleOptionIndex" class=" addrow control-label"><span class="glyphicon glyphicon-plus-sign"></span>Add</a>
                             <a href="javascript:void(0);" id="Details" class="control-label" title="Possible Answers" data-toggle="popover" data-trigger="manual" data-content="Loading.." data-html="true" data-placement="bottom"><span class="glyphicon glyphicon-check"></span>Details</a>
